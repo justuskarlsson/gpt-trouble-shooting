@@ -1,0 +1,2 @@
+src/assets/svelte.svg filter=lfs diff=lfs merge=lfs -text
+public/vite.svg filter=lfs diff=lfs merge=lfs -text
