@@ -15,6 +15,9 @@ module.exports = {
         'spin-slow': 'spin 3s ease-in-out infinite',
         'spin': 'spin 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite',
       },
+      width: {
+        "md": "900px"
+      }
     },
     container: {
       center: true,

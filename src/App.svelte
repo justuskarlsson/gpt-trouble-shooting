@@ -1,15 +1,17 @@
 <script lang="ts">
-    import TextInput from "./lib/elements/TextInput.svelte";
-    import View from "./lib/elements/View.svelte";
+  import TextInput from "./lib/elements/TextInput.svelte";
+  import View from "./lib/elements/View.svelte";
 
 </script>
 
 <main>
-  <View direction="y">
-    <View class="h-3/4" direction="y">
-
+  <View class="flex flex-col h-screen items-center bg-secondary" >
+    <View class="h-[100%] w-md ">
+      bla
     </View>
-    <TextInput />
+    <TextInput class="py-4 w-md" 
+
+    />
   </View>
 </main>
 

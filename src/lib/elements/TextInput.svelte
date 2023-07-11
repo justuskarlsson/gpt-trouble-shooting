@@ -3,9 +3,10 @@
 </script>
 
 
-<div>
+<div class="flex flex-row justify-center
+            {$$props.class || ""}">
 
-  <input />
+  <input class="min-w-[800px] w-full"/>
 </div>
 
 
