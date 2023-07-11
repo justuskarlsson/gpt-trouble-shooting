@@ -5,7 +5,7 @@
   
 </script>
 
-<div class="container" style='
+<div class="container {$$props.class || ""}" style='
   flex-direction: {direction === "y" ? "column" : "row"};
 '>
   <slot />
