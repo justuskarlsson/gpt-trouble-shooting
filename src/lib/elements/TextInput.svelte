@@ -1,6 +1,7 @@
 <script lang="ts">
 
   export let value: string = "";
+  export let placeholder: string = "";
   export let onSubmit: (value: string) => any | null = null;
 
   function onKeyDown(e: KeyboardEvent){
@@ -20,6 +21,7 @@
   <input class="min-w-[800px] w-full"
         bind:value={value}
         on:keydown={onKeyDown}
+        {placeholder}
   />
 </div>
 

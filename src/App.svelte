@@ -2,7 +2,7 @@
     import type { ChatCompletionRequestMessage } from "openai";
   import TextInput from "./lib/elements/TextInput.svelte";
   import View from "./lib/elements/View.svelte";
-    import { MessageStreamGen } from "./lib/util";
+    import { MessageStreamGen, SYS_CLASSIFY_1, SYS_TROUBLESHOOT_1 } from "./lib/util";
 
 
   let messages: ChatCompletionRequestMessage[] = [];
@@ -19,6 +19,7 @@
     }
     const stream = MessageStreamGen({
       messages: [
+        SYS_TROUBLESHOOT_1,
         ...oldMessages,
         prompt,
       ],
@@ -47,7 +48,7 @@
         </View>
       {/each}
     </View>
-    <TextInput class="py-4 w-md" onSubmit={sendMessage} />
+    <TextInput class="py-4 w-md" onSubmit={sendMessage} placeholder="Describe your problem.." />
   </View>
 </main>
 
