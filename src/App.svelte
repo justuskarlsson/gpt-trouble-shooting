@@ -1,8 +1,10 @@
 <script lang="ts">
+    import TextInput from "./lib/elements/TextInput.svelte";
+
 </script>
 
 <main>
-  <h1>TMP</h1>
+  <TextInput />
 </main>
 
 

@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "nodemon --watch backend --ext ts --exec ts-node ./server.ts"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "openai": "^3.3.0",
+    "tslib": "^2.6.0",
+    "typescript": "^5.0.2"
+  }
+}
