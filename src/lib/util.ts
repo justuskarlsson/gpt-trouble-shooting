@@ -8,6 +8,7 @@ export function apiFetch(
 ):
  Promise<Response> {
   const BASE = PROD ? "/api" : "http://localhost:3000/api"; 
+  console.log(init);
   return fetch(BASE + path, init);
 }
 
@@ -20,11 +21,19 @@ export function stylesString(styles: Record<string, any>){
 }
 
 
+/**
+ * Used like ```
+ * let stream = MessageStreamGen(...);
+ * for await (let chunk of stream){
+ *     curAnswer.content += chunk;
+ * }
+ * ```
+ */
 export async function* MessageStreamGen(body: CreateChatCompletionRequest, endpoint: string = "/chat"){
   const response = await apiFetch(endpoint, {
     method: "POST",
     headers: {
-    'Content-Type': 'text/event-stream'
+    'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)
   });

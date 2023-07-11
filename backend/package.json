@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "nodemon --watch backend --ext ts --exec ts-node ./server.ts"
+    "dev": "nodemon --watch **/*.ts --ext ts --exec ts-node ./server.ts"
   },
   "devDependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "openai": "^3.3.0",
     "tslib": "^2.6.0",

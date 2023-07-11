@@ -2,12 +2,37 @@
     import type { ChatCompletionRequestMessage } from "openai";
   import TextInput from "./lib/elements/TextInput.svelte";
   import View from "./lib/elements/View.svelte";
+    import { MessageStreamGen } from "./lib/util";
 
 
   let messages: ChatCompletionRequestMessage[] = [];
-  let test = true;
+  let test = false;
   if (test) {
     messages = [{content: "Hello!", role: "user"}, {content: "Why hello there!", role: "assistant"},]
+  }
+
+  async function sendMessage(input: string){
+    let oldMessages = [...messages];
+    let prompt: ChatCompletionRequestMessage = {
+      content: input,
+      role: "user",
+    }
+    const stream = MessageStreamGen({
+      messages: [
+        ...oldMessages,
+        prompt,
+      ],
+      model: "gpt-3.5-turbo"
+    })
+    let answer: ChatCompletionRequestMessage = {
+      content: "",
+      role: "assistant",
+    }
+    messages = [...oldMessages, prompt, answer];
+    for await ( let chunk of stream) {
+      answer.content += chunk;
+      messages = [...oldMessages, prompt, answer];
+    }
   }
 
 </script>
@@ -22,7 +47,7 @@
         </View>
       {/each}
     </View>
-    <TextInput class="py-4 w-md" />
+    <TextInput class="py-4 w-md" onSubmit={sendMessage} />
   </View>
 </main>
 

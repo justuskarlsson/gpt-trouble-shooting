@@ -3,7 +3,7 @@ import 'express-async-errors';
 
 import express from 'express';
 import {errorHandler} from './error'
-import { openai } from 'config';
+import { openai } from './config';
 import { CreateChatCompletionRequest } from 'openai';
 
 export const api = express.Router(); // Create a separate router for the API routes
