@@ -1,13 +1,14 @@
 <script lang="ts">
-  export let direction: "x" | "y" = "y";
+  export let direction: "x" | "y" | "" = "";
 
   
   
 </script>
 
-<div class="container {$$props.class || ""}" style='
-  flex-direction: {direction === "y" ? "column" : "row"};
-'>
+<div class="container {$$props.class || ""}"
+     class:flex-col={direction === "y"}
+     class:flex-row={direction === "x"}
+>
   <slot />
 </div>
 
